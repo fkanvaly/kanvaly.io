@@ -36,7 +36,7 @@ export default function BlogLayout({
               alt="Lee Robinson"
               height={24}
               width={24}
-              src="/avatar.jpg"
+              src="/avatar.jpeg"
               className="rounded-full"
             />
             <p className="ml-2 text-sm text-gray-700 dark:text-gray-300">
