@@ -10,8 +10,7 @@ export default function BlogPost({
   summary,
   slug
 }: Pick<Blog, 'title' | 'summary' | 'slug'>) {
-  const { data } = useSWR<Views>(`/api/views/${slug}`, fetcher);
-  const views = data?.total;
+  const views = 0;
 
   return (
     <Link href={`/blog/${slug}`}>
