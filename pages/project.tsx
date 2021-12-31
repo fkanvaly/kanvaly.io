@@ -6,7 +6,7 @@ import { InferGetStaticPropsType } from 'next';
 import { pick } from 'lib/utils';
 import { allBlogs } from '.contentlayer/data';
 
-export default function Blog({
+export default function Project({
   posts
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   const [searchValue, setSearchValue] = useState('');
@@ -16,15 +16,15 @@ export default function Blog({
 
   return (
     <Container
-      title="Blog"
-      description="Interesting in Machine Learning and I will write about what I learn along the way."
+      title="Project"
+      description=""
     >
       <div className="flex flex-col items-start justify-center max-w-2xl mx-auto mb-16">
         <h1 className="mb-4 text-3xl font-bold tracking-tight text-black md:text-5xl dark:text-white">
           Blog
         </h1>
         <p className="mb-4 text-gray-600 dark:text-gray-400">
-          {`I will write about what I learn along the way.
+          {`I've been writing online since 2014, mostly about web development and tech careers.
             In total, I've written ${posts.length} articles on my blog.
             Use the search below to filter by title.`}
         </p>
@@ -51,7 +51,28 @@ export default function Blog({
             />
           </svg>
         </div>
-        
+        {!searchValue && (
+          <>
+            <h3 className="mt-8 mb-4 text-2xl font-bold tracking-tight text-black md:text-4xl dark:text-white">
+              Most Popular
+            </h3>
+            <BlogPost
+              title="Everything I Know About Style Guides, Design Systems, and Component Libraries"
+              summary="A deep-dive on everything I've learned in the past year building style guides, design systems, component libraries, and their best practices."
+              slug="style-guides-component-libraries-design-systems"
+            />
+            <BlogPost
+              title="How Stripe Designs Beautiful Websites"
+              summary="Examining the tips and tricks used to make Stripe's website design a notch above the rest."
+              slug="how-stripe-designs-beautiful-websites"
+            />
+            <BlogPost
+              title="Creating a Monorepo with Lerna & Yarn Workspaces"
+              summary="In this guide, you will learn how to create a Monorepo to manage multiple packages with a shared build, test, and release process."
+              slug="monorepo-lerna-yarn-workspaces"
+            />
+          </>
+        )}
         <h3 className="mt-8 mb-4 text-2xl font-bold tracking-tight text-black md:text-4xl dark:text-white">
           All Posts
         </h3>

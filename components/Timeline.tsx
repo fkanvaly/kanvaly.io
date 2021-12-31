@@ -158,96 +158,15 @@ export default function Timeline() {
       </h3>
       <Year>2021</Year>
       <ul>
-        <Step title="Head of Developer Relations at Vercel 👨‍👩‍👧‍👦">
+        <Step title="Joined Datadog 🐶">
           I'm extremely excited about this new role helping grow the Next.js and
           Vercel community.
         </Step>
-        <Step title="10,000 YouTube Subscribers 🎥">
-          After many years on YouTube, I've started to figure this whole video
-          thing out.
-        </Step>
-        <Step title="5,000 Newsletter Subscribers 💌">
-          If you want to stay up-to-date on my latest work, it usually hits the
-          newsletter first. I try to send an update once a month.
+        <Step title="Graduate from École Polytechnique">
+          After many years
         </Step>
       </ul>
       <Divider />
-      <Year>2020</Year>
-      <ul>
-        <Step title="Joined ▲Vercel">
-          I'm excited to help grow the Next.js community and continue building
-          the optimal workflow for front-end developers.
-        </Step>
-        <Step title="Launched React 2025 💯">
-          Building a real SaaS application, from zero to production.
-        </Step>
-        <Step title="Emerging Technology Leader of the Year 🏆">
-          I was extremely honored to be one of five finalists nominated for this
-          award at the 2020 Prometheus Awards.
-        </Step>
-        <Step title="Got Married 🥳">
-          Great year for a wedding, huh? We had a small ceremony with family and
-          it was better than I could have imagined.
-        </Step>
-        <Step title="Became a Tech Lead 👨🏻‍💻">
-          Starting at the beginning of 2020, I moved into a tech leadership role
-          on an e-commerce development team at Hy-Vee.
-        </Step>
-        <Step title="Mastering Next.js made $10K 📈">
-          I taught hundreds of students from all over the world how to build web
-          applications. Exceeded my wildest expectations.
-        </Step>
-      </ul>
-      <Divider />
-      <Year>2019</Year>
-      <ul>
-        <Step title="Software Engineer III ✨">
-          Led design system architecture at Hy-Vee, building new components with
-          React, Storybook, and styled-components.
-        </Step>
-        <Step title="Mastering Next.js ⚛️">
-          Launched a 50+ lesson video course for building apps with Next.js and
-          React.
-        </Step>
-        <Step title="Bought a Townhome 🏡">
-          Who wants to do yardwork? Not me. Plus, Allie and I love living
-          downtown Des Moines.
-        </Step>
-        <Step title="Got Engaged 💍">
-          I asked my now fiancée, Allie, to marry me. She said yes! September
-          was a busy month, to say the least – I also spoke at three events and
-          sold my condo.
-        </Step>
-        <Step title="Spoke at Talent42 🎤">
-          I spoke to over 100 technical recruiting leaders from across the
-          country at Talent42 in Seattle during a 45-minute keynote.
-        </Step>
-      </ul>
-      {isShowingFullTimeline ? (
-        <FullTimeline />
-      ) : (
-        <button
-          type="button"
-          className="flex items-center text-sm my-4 mx-auto px-4 py-2 rounded-md font-medium text-gray-900 dark:text-gray-100"
-          onClick={() => showFullTimeline(true)}
-        >
-          See More
-          <svg
-            className="h-4 w-4 ml-1"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M19 9l-7 7-7-7"
-            />
-          </svg>
-        </button>
-      )}
     </>
   );
 }

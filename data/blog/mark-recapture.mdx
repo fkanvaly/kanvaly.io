@@ -1,0 +1,40 @@
+---
+title: 'Mark and Recapture 🦘'
+publishedAt: '2021-04-07'
+summary: 'How to count animals in a safari'
+image: '/static/img/capture.png'
+---
+
+<Image
+  alt={`Norway`}
+  src={`/static/img/capture.png`}
+  width={1501 / 2}
+  height={712 / 2}
+  priority
+/>
+
+Hello friends! Today equipped with our Bayesian magnifying glass 🔎 we are going on a Safari to count animals. Inspired by [Andrew M. Webb](https://twitter.com/AndrewM_Webb/status/1212673397106388992) tweet I tried to reproduce what he made. I will explain to you how to count the number of animals by using [Mark and recapture](https://en.wikipedia.org/wiki/Mark_and_recapture) method and [Bayesian Inference](https://en.wikipedia.org/wiki/Bayesian_inference). First let's take a look at the result, then, explain how we get to it.
+
+# Result 🔥
+
+Below you can click on the button `Capture` many times to capture particles, mark, and release them. We then use what we observe to update our belief on the number of animals. The red line is the correct value.
+
+# Mark and Recapture 🪤
+
+Mark and recapture is a method commonly used in ecology to estimate an animal population's size where it is impractical to count every individual. So what do we do ? we catch some animals, mark them, release them, and catch some again. In the second capture, there will be some marked animals and some unmarked (i.e., not seen before). The ratio gives you some information about the population size.
+
+We'll make these simplifying modeling assumptions:
+
+> * The population size is constant. Animals don't leave or join the population between capture events.
+> * Every animal has an equal probability of being captured, and this probability is independent of capture events.
+> * The total number of animals captured in a given capture event does not depend on the total population size (apart from being upper-bounded by it). This assumption is false in the animation above but is often true in mark-and-recapture fieldwork. Note, if the total number of animals captured at each stage did depend on the population size, the total number observed would give us further information about the population size.
+
+# Belief Update 🤔
+
+We will use the information of each capture to update our belief on the population size. Bayes Theorem is the main part of this update. Let's explain with a simple example. Imagine we thought that the population size is $pop=10$. we make our capture, and get 11 animals in our first try. bayesian belief update will update our belief using this rules: belief on $pop=10$ is multiplied by the likelihood of catching 11 animals if the $pop=10$. For our example the likelihood will be very low because capturing 11 if the population is 10 it is very unlikely (here impossible probability=0). This is exactly what we do for a range of prior population size. Then we normalize over all resulting value.
+
+So, Bayesian Update is made as follow:
+
+> * Specify a prior distribution over hypotheses, in the absence of observational data.
+> * For a given hypothesis and observation, compute the likelihood, i.e., the probability of having made that observation.
+> * Re-normalize the posterior distribution, so that it sums to 1.

@@ -38,7 +38,7 @@ export default function Container(props) {
   const { children, ...customMeta } = props;
   const router = useRouter();
   const meta = {
-    title: 'Kanvaly Fadiga',
+    title: '👋 Kanvaly',
     description: `Data Scientist`,
     image: 'https://leerob.io/static/images/banner.png',
     type: 'website',
@@ -75,7 +75,10 @@ export default function Container(props) {
           <div className="ml-[-0.60rem]">
             <MobileMenu />
             <NavItem href="/" text="Home" />
+            <NavItem href="/about" text="About" />
             <NavItem href="/blog" text="Blog" />
+            <NavItem href="/project" text="Project" />
+            <NavItem href="/connector" text="Connector" />
           </div>
           <button
             aria-label="Toggle Dark Mode"

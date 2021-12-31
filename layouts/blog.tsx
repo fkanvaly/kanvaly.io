@@ -20,9 +20,9 @@ export default function BlogLayout({
 }: PropsWithChildren<{ post: Blog }>) {
   return (
     <Container
-      title={`${post.title} – Lee Robinson`}
+      title={`${post.title} – Kanvaly Fadiga`}
       description={post.summary}
-      image={`https://leerob.io${post.image}`}
+      image={`https://kanvaly.io${post.image}`}
       date={new Date(post.publishedAt).toISOString()}
       type="article"
     >
@@ -33,14 +33,14 @@ export default function BlogLayout({
         <div className="flex flex-col items-start justify-between w-full mt-2 md:flex-row md:items-center">
           <div className="flex items-center">
             <Image
-              alt="Lee Robinson"
+              alt="Kanvaly Fadiga"
               height={24}
               width={24}
               src="/avatar.jpeg"
               className="rounded-full"
             />
             <p className="ml-2 text-sm text-gray-700 dark:text-gray-300">
-              {'Lee Robinson / '}
+              {'Kanvaly Fadiga / '}
               {format(parseISO(post.publishedAt), 'MMMM dd, yyyy')}
             </p>
           </div>
