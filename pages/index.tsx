@@ -1,12 +1,25 @@
+import plot from 'components/Background';
+import useWindowDimensions from 'components/useWindowDimensions';
 import Image from 'next/image';
-import Link from 'next/link';
+import { useEffect, useState } from 'react';
 
 import Container from '../components/Container';
 import GradientCard from '../components/GradientCard';
 
+
 export default function Home({ videos }) {
+  const { height, width } = useWindowDimensions();
+
+  useEffect(() => {
+    plot({
+      w: width,
+      h: 100
+    });
+  });
+  
   return (
     <Container>
+      <div id="background" className='absolute'></div>
       <div className="flex flex-col justify-center items-start max-w-2xl border-gray-200 dark:border-gray-700 mx-auto pb-16">
         <div className="flex flex-col">
           <div className="flex justify-center mb-10">
@@ -47,3 +60,4 @@ export default function Home({ videos }) {
     </Container>
   );
 }
+
