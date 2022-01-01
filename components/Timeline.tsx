@@ -159,8 +159,7 @@ export default function Timeline() {
       <Year>2021</Year>
       <ul>
         <Step title="Joined Datadog 🐶">
-          I'm extremely excited about this new role helping grow the Next.js and
-          Vercel community.
+          I'm extremely excited about this new role helping develop new features on Datadog
         </Step>
         <Step title="Graduate from École Polytechnique">
           After many years

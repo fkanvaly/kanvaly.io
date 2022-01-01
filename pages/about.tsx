@@ -2,6 +2,7 @@ import Link from 'next/link';
 
 import Timeline from '../components/Timeline';
 import Container from 'components/Container';
+import TopTracks from 'components/TopTracks';
 
 export default function About() {
   return (
@@ -16,6 +17,14 @@ export default function About() {
           </p>
         </div>
         <Timeline />
+        <h2 className="font-bold text-3xl tracking-tight mb-4 mt-16 text-black dark:text-white">
+          Top Tracks
+        </h2>
+        <p className="text-gray-600 dark:text-gray-400 mb-4">
+          Curious what I'm currently jamming to? Here's my top tracks on Spotify
+          updated daily.
+        </p>
+        <TopTracks />
       </div>
     </Container>
   );

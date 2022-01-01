@@ -1,10 +1,10 @@
 import { useState } from 'react';
 
 import Container from 'components/Container';
-import BlogPost from 'components/BlogPost';
+import ProjectPost from 'components/ProjectPost';
 import { InferGetStaticPropsType } from 'next';
 import { pick } from 'lib/utils';
-import { allBlogs } from '.contentlayer/data';
+import { allProjects } from '.contentlayer/data';
 
 export default function Project({
   posts
@@ -19,16 +19,11 @@ export default function Project({
       title="Project"
       description=""
     >
-      <div className="flex flex-col items-start justify-center max-w-2xl mx-auto mb-16">
+      <div className="w-full flex flex-col items-start justify-center max-w-2xl mx-auto mb-16">
         <h1 className="mb-4 text-3xl font-bold tracking-tight text-black md:text-5xl dark:text-white">
-          Blog
+          Projects
         </h1>
-        <p className="mb-4 text-gray-600 dark:text-gray-400">
-          {`I've been writing online since 2014, mostly about web development and tech careers.
-            In total, I've written ${posts.length} articles on my blog.
-            Use the search below to filter by title.`}
-        </p>
-        <div className="relative w-full mb-4">
+        <div className="relative w-full mb-8">
           <input
             aria-label="Search articles"
             type="text"
@@ -51,38 +46,13 @@ export default function Project({
             />
           </svg>
         </div>
-        {!searchValue && (
-          <>
-            <h3 className="mt-8 mb-4 text-2xl font-bold tracking-tight text-black md:text-4xl dark:text-white">
-              Most Popular
-            </h3>
-            <BlogPost
-              title="Everything I Know About Style Guides, Design Systems, and Component Libraries"
-              summary="A deep-dive on everything I've learned in the past year building style guides, design systems, component libraries, and their best practices."
-              slug="style-guides-component-libraries-design-systems"
-            />
-            <BlogPost
-              title="How Stripe Designs Beautiful Websites"
-              summary="Examining the tips and tricks used to make Stripe's website design a notch above the rest."
-              slug="how-stripe-designs-beautiful-websites"
-            />
-            <BlogPost
-              title="Creating a Monorepo with Lerna & Yarn Workspaces"
-              summary="In this guide, you will learn how to create a Monorepo to manage multiple packages with a shared build, test, and release process."
-              slug="monorepo-lerna-yarn-workspaces"
-            />
-          </>
-        )}
-        <h3 className="mt-8 mb-4 text-2xl font-bold tracking-tight text-black md:text-4xl dark:text-white">
-          All Posts
-        </h3>
         {!filteredBlogPosts.length && (
           <p className="mb-4 text-gray-600 dark:text-gray-400">
-            No posts found.
+            No projects found.
           </p>
         )}
         {filteredBlogPosts.map((post) => (
-          <BlogPost key={post.title} {...post} />
+          <ProjectPost key={post.title} {...post} />
         ))}
       </div>
     </Container>
@@ -90,7 +60,7 @@ export default function Project({
 }
 
 export function getStaticProps() {
-  const posts = allBlogs
+  const posts = allProjects
     .map((post) => pick(post, ['slug', 'title', 'summary', 'publishedAt']))
     .sort(
       (a, b) =>

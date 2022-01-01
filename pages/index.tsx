@@ -34,11 +34,11 @@ export default function Home({ videos }) {
         </div>
         <div className="flex w-full justify-center gap-6 flex-row px-20">
           <GradientCard title="Blog" href="/blog" gradient="from-[#D8B4FE] to-[#818CF8]" />
-          <GradientCard href="/projects"
+          <GradientCard href="/project"
             title="Project"
             gradient="from-[#6EE7B7] via-[#3B82F6] to-[#9333EA]"
           />
-          <GradientCard href=""
+          <GradientCard href="/resume"
             title="Resume"
             gradient="from-[#FDE68A] via-[#FCA5A5] to-[#FECACA]"
           />
