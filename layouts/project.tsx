@@ -5,12 +5,19 @@ import Container from 'components/Container';
 import Subscribe from 'components/Subscribe';
 import ViewCounter from 'components/ViewCounter';
 import type { PropsWithChildren } from 'react';
-import type { Blog } from '.contentlayer/types';
+import type { Project } from '.contentlayer/types';
 
-export default function BlogLayout({
+const editUrl = (slug) =>
+  `https://github.com/leerob/leerob.io/edit/main/data/blog/${slug}.mdx`;
+const discussUrl = (slug) =>
+  `https://mobile.twitter.com/search?q=${encodeURIComponent(
+    `https://leerob.io/blog/${slug}`
+  )}`;
+
+export default function ProjectLayout({
   children,
   post
-}: PropsWithChildren<{ post: Blog }>) {
+}: PropsWithChildren<{ post: Project }>) {
   return (
     <Container
       title={`${post.title} – Kanvaly Fadiga`}
@@ -19,7 +26,7 @@ export default function BlogLayout({
       date={new Date(post.publishedAt).toISOString()}
       type="article"
     >
-      <article className="flex flex-col text-justify items-start justify-center w-full max-w-2xl mx-auto mb-16">
+      <article className="flex flex-col items-start justify-center w-full max-w-2xl mx-auto mb-16">
         <h1 className="mb-4 text-3xl font-bold tracking-tight text-black md:text-5xl dark:text-white">
           {post.title}
         </h1>
@@ -46,6 +53,7 @@ export default function BlogLayout({
         <div className="w-full mt-4 prose dark:prose-dark max-w-none">
           {children}
         </div>
+        
       </article>
     </Container>
   );

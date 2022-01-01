@@ -3,7 +3,6 @@
   "license": "MIT",
   "scripts": {
     "build": "next build",
-    "postbuild": "NODE_OPTIONS='--experimental-json-modules' node ./scripts/generate-rss.mjs && node ./scripts/generate-sitemap.mjs",
     "dev": "next dev",
     "start": "next start",
     "lint": "next lint"
@@ -13,6 +12,7 @@
     "@tailwindcss/typography": "0.5.0",
     "big.js": "6.1.1",
     "contentlayer": "^0.0.33",
+    "d3": "^3.5.7",
     "date-fns": "2.27.0",
     "fathom-client": "3.2.0",
     "googleapis": "48.0.0",

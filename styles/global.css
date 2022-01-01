@@ -226,3 +226,15 @@ table {
   overflow-x: auto;
   white-space: nowrap;
 }
+
+
+svg {
+  font: 10px black;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #ccc;
+  shape-rendering: crispEdges;
+}

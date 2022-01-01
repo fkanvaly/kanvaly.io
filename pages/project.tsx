@@ -1,12 +1,12 @@
 import { useState } from 'react';
 
 import Container from 'components/Container';
-import BlogPost from 'components/BlogPost';
+import ProjectPost from 'components/ProjectPost';
 import { InferGetStaticPropsType } from 'next';
 import { pick } from 'lib/utils';
-import { allBlogs } from '.contentlayer/data';
+import { allProjects } from '.contentlayer/data';
 
-export default function Blog({
+export default function Project({
   posts
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   const [searchValue, setSearchValue] = useState('');
@@ -16,18 +16,13 @@ export default function Blog({
 
   return (
     <Container
-      title="Blog"
-      description="Interesting in Machine Learning and I will write about what I learn along the way."
+      title="Project"
+      description=""
     >
       <div className="w-full flex flex-col items-start justify-center max-w-2xl mx-auto mb-16">
         <h1 className="mb-4 text-3xl font-bold tracking-tight text-black md:text-5xl dark:text-white">
-          Blog
+          Projects
         </h1>
-        <p className="mb-4 text-gray-600 dark:text-gray-400">
-          {`I will write about what I learn along the way.
-            In total, I've written ${posts.length} articles on my blog.
-            Use the search below to filter by title.`}
-        </p>
         <div className="relative w-full mb-8">
           <input
             aria-label="Search articles"
@@ -53,11 +48,11 @@ export default function Blog({
         </div>
         {!filteredBlogPosts.length && (
           <p className="mb-4 text-gray-600 dark:text-gray-400">
-            No posts found.
+            No projects found.
           </p>
         )}
         {filteredBlogPosts.map((post) => (
-          <BlogPost key={post.title} {...post} />
+          <ProjectPost key={post.title} {...post} />
         ))}
       </div>
     </Container>
@@ -65,7 +60,7 @@ export default function Blog({
 }
 
 export function getStaticProps() {
-  const posts = allBlogs
+  const posts = allProjects
     .map((post) => pick(post, ['slug', 'title', 'summary', 'publishedAt']))
     .sort(
       (a, b) =>
