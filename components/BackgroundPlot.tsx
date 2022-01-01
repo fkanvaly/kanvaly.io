@@ -1,8 +1,22 @@
+import { useState, useEffect, useRef } from 'react';
 import * as d3 from "d3";
 
-export default function plot(size) {
-  console.log(size)
 
+export default function BackgroundPlot() {
+  const [width, setWidth] = useState(0)
+  const ref = useRef(null)
+
+  useEffect(() => {
+    setWidth(ref.current.clientWidth)
+    plot({width})
+    console.log(width)
+  }, [width])
+
+  return (<div ref={ref} id="background" className='w-full mt-1 mb-1'></div>);
+}
+
+
+function plot(size) {
   var n = 50,
     random = d3.random.normal(0, 0.2),
     data1 = d3.range(n).map(random),
@@ -10,7 +24,7 @@ export default function plot(size) {
       return d + random() * 0.6;
     });
 
-  var margin = { top: 20, right: -100, bottom: 20, left: -100 },
+  var margin = { top: 20, right: 0, bottom: 20, left: 0 },
     width = size.width - margin.left - margin.right,
     height = 100 - margin.top - margin.bottom;
 

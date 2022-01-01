@@ -232,15 +232,9 @@ svg {
   font: 10px black;
 }
 
-/* .line {
-  fill: none;
-  stroke: black;
-  stroke-width: 1.5px;
-} */
-
-/* .axis path,
+.axis path,
 .axis line {
   fill: none;
   stroke: #ccc;
   shape-rendering: crispEdges;
-} */
+}

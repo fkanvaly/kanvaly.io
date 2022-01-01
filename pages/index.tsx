@@ -1,5 +1,5 @@
 import plot from 'components/Background';
-import useWindowDimensions from 'components/useWindowDimensions';
+import BackgroundPlot from 'components/BackgroundPlot';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 
@@ -8,18 +8,15 @@ import GradientCard from '../components/GradientCard';
 
 
 export default function Home({ videos }) {
-  const { height, width } = useWindowDimensions();
-
-  useEffect(() => {
-    plot({
-      w: width,
-      h: 100
-    });
-  });
+  // useWindowDimensions();  
+  
+  // useEffect(() => {    
+  //   plot(windowDimensions);
+  // }, [windowDimensions]);
   
   return (
     <Container>
-      <div id="background" className='absolute'></div>
+        
       <div className="flex flex-col justify-center items-start max-w-2xl border-gray-200 dark:border-gray-700 mx-auto pb-16">
         <div className="flex flex-col">
           <div className="flex justify-center mb-10">
@@ -39,13 +36,14 @@ export default function Home({ videos }) {
             <h2 className="text-center text-gray-700 dark:text-gray-200 mb-4">
               Data Scientist at <span className="font-semibold">Datadog</span>
             </h2>
-            <p className="text-center text-gray-600 dark:text-gray-400 mb-16">
+            <p className="text-center text-gray-600 dark:text-gray-400">
               Detecting issues faster in high volume of application traces,
               logs, and security signals.
             </p>
           </div>
+          <BackgroundPlot />
         </div>
-        <div className="flex w-full justify-center gap-6 flex-row px-20">
+        <div className="flex w-full justify-center gap-6 flex-col md:flex-row px-20">
           <GradientCard title="Blog" href="/blog" gradient="from-[#D8B4FE] to-[#818CF8]" />
           <GradientCard href="/project"
             title="Project"
