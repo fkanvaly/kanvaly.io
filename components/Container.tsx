@@ -40,7 +40,7 @@ export default function Container(props) {
   const meta = {
     title: '👋 Kanvaly',
     description: `Data Scientist`,
-    image: 'https://leerob.io/static/images/banner.png',
+    image: 'https://kanvaly.vercel.app/static/img/banner.png',
     type: 'website',
     ...customMeta
   };
