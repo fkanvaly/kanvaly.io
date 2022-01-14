@@ -159,10 +159,10 @@ export default function Timeline() {
       <Year>2021</Year>
       <ul>
         <Step title="Joined Datadog 🐶">
-          I'm extremely excited about this new role helping develop new features on Datadog
+          I'm extremely excited to continue full time after my internship. 
         </Step>
         <Step title="Graduate from École Polytechnique">
-          After many years
+          I studied machine learning and computer vision. 
         </Step>
       </ul>
       <Divider />

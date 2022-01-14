@@ -1,0 +1,8 @@
+---
+title: "Position Based dynamics 🤾‍♂️"
+publishedAt: '2020-05-31'
+summary: '3D physics engine'
+image: '/static/img/capture.png'
+---
+One approach for the simulation of dynamic systems in computer graphics is force-based. Internal and external forces are accumulated from which accelerations are computed based on Newton’s second law of motion. A time integration method is then used to update the velocities and finally the positions of the object. A few simulation methods (most rigid body simulators) use impulse-based dynamics and directly manipulate velocities. The paper I studied present an approach that omits the velocity layer as well and immediately works on the positions. This method can simulate multiple object types such as gases, liquids, deformable solids, rigid bodies, and cloth in a single piece of software by using constraint solver and position-based dynamics (PBD).
+

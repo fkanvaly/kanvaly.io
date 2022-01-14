@@ -14,6 +14,6 @@ export default async function handler(
     }
 
     if (req.method === 'GET') {
-        return res.status(200).json({ total: "3"});
+        return res.status(200).json({ total: ""});
     }
 }

@@ -5667,6 +5667,11 @@ tty-browserify@0.0.1:
   resolved "https://registry.yarnpkg.com/tty-browserify/-/tty-browserify-0.0.1.tgz#3f05251ee17904dfd0677546670db9651682b811"
   integrity sha512-C3TaO7K81YvjCgQH9Q1S3R3P3BtN3RIM8n+OvX4il1K1zgE8ZhI0op7kClgkxtutIE8hQrcrHBXvIheqKUUCxw==
 
+two.js@^0.7.13:
+  version "0.7.13"
+  resolved "https://registry.yarnpkg.com/two.js/-/two.js-0.7.13.tgz#b4dbd89fd5889b17758a4dbe3281df5c3c767b3b"
+  integrity sha512-UP2MkH7gm4p8WQrLGoYnEo8ZztHKijoZzBz0h/ehdOUh93/6p8LvI0gtZZ3+n5Mndks2jVxJRgPYKSwpk7jrrw==
+
 typanion@^3.3.1, typanion@^3.7.1:
   version "3.7.1"
   resolved "https://registry.yarnpkg.com/typanion/-/typanion-3.7.1.tgz#5fceb57a2fa0c0a5beca25a7e90ac2a420863709"
