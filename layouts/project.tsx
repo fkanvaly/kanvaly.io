@@ -2,17 +2,9 @@ import Image from 'next/image';
 import { parseISO, format } from 'date-fns';
 
 import Container from 'components/Container';
-import Subscribe from 'components/Subscribe';
 import ViewCounter from 'components/ViewCounter';
 import type { PropsWithChildren } from 'react';
 import type { Project } from '.contentlayer/types';
-
-const editUrl = (slug) =>
-  `https://github.com/leerob/leerob.io/edit/main/data/blog/${slug}.mdx`;
-const discussUrl = (slug) =>
-  `https://mobile.twitter.com/search?q=${encodeURIComponent(
-    `https://leerob.io/blog/${slug}`
-  )}`;
 
 export default function ProjectLayout({
   children,

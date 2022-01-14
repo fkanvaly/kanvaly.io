@@ -1,19 +1,11 @@
-import plot from 'components/Background';
 import BackgroundPlot from 'components/BackgroundPlot';
 import Image from 'next/image';
-import { useEffect, useState } from 'react';
 
 import Container from '../components/Container';
 import GradientCard from '../components/GradientCard';
 
 
 export default function Home({ videos }) {
-  // useWindowDimensions();  
-  
-  // useEffect(() => {    
-  //   plot(windowDimensions);
-  // }, [windowDimensions]);
-  
   return (
     <Container>
         
