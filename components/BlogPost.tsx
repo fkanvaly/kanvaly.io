@@ -21,7 +21,7 @@ export default function BlogPost({
           'w-full mb-8'
         )}>
         <div className="flex flex-row-reverse justify-between w-full rounded-2xl border-2 overflow-hidden">
-          <img className='w-32 md:w-52 h-auto object-contain' src={image}/>
+          <img className='w-32 md:w-52 h-auto object-contain' src={image} alt=''/>
           <div className='mt-6 mx-6'>
             <h4 className="w-full mb-2 text-lg font-medium text-gray-900 md:text-xl dark:text-gray-100">
               {title}

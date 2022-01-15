@@ -46,7 +46,7 @@ const MDXComponents = {
   Unsplash,
   YouTube,
   MathSpace: MathContext,
-  MarkRecapture
+  MarkRecapture: MarkRecapture
 };
 
 export default MDXComponents;

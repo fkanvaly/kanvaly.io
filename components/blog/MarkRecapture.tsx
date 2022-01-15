@@ -2,6 +2,7 @@ import pl from 'date-fns/esm/locale/pl/index.js';
 import React, { useEffect, useRef } from 'react';
 import Two from 'two.js';
 import vegaEmbed from "vega-embed";
+import {TopLevelSpec} from 'vega-lite';
 
 export default function MarkRecapture() {
   var domElement = useRef();
@@ -118,11 +119,34 @@ export default function MarkRecapture() {
         plot();
     }
 
+    function range(start, stop, step) {
+        if (typeof stop == 'undefined') {
+            // one param defined
+            stop = start;
+            start = 0;
+        }
+    
+        if (typeof step == 'undefined') {
+            step = 1;
+        }
+    
+        if ((step > 0 && start >= stop) || (step < 0 && start <= stop)) {
+            return [];
+        }
+    
+        var result = [];
+        for (var i = start; step > 0 ? i < stop : i > stop; i += step) {
+            result.push(i);
+        }
+    
+        return result;
+    };
+
     
 
 
-    let candidate_pop_sizes = [...Array(350).keys()].map(i => i + 100);
-    let belief = [...Array(pop_size).keys()].map(i => 1.0);
+    let candidate_pop_sizes = range(0,350, 1).map(i => i + 100);
+    let belief = range(0, pop_size, 1).map(i => 1.0);
     let sumBelief = belief.reduce((cum, curr)=>cum+curr, 0.);
     belief = belief.map(v => v/sumBelief);
 
@@ -172,34 +196,33 @@ export default function MarkRecapture() {
           })
       }
     
-      var vlSpec = {
+      var vlSpec: TopLevelSpec = {
           $schema: "https://vega.github.io/schema/vega-lite/v4.json",
-          "description": "A simple bar chart with embedded data.",
-          "height":300,
-          "data": {
-              "values": data
+          description: "A simple bar chart with embedded data.",
+          data: {
+              values: data
           },
-          "layer":[
+          layer:[
               {
-                  "mark": "bar",
-                  "encoding": {
-                      "x": {
-                          "field": "pop_size",
-                          "type": "quantitative",
-                          "axis": {"labelAngle": -90},
+                  mark: "bar",
+                  encoding: {
+                      x: {
+                          field: "pop_size",
+                          type: "quantitative",
+                          axis: {labelAngle: -90},
                       },
     
-                      "y": {
-                          "field": "belief",
-                          "type": "quantitative",
+                      y: {
+                          field: "belief",
+                          type: "quantitative",
                       }}
               },
               {
-                  "mark": "rule",
-                  "encoding": {
-                      "x": {"aggregate": "min", "field": "gt"},
-                      "color": {"value": "red"},
-                      "size": {"value": 2}
+                  mark: "rule",
+                  encoding: {
+                      x: {aggregate: "min", field: "gt"},
+                      color: {value: "red"},
+                      size: {value: 2}
                   }
               }
           ]
@@ -243,6 +266,11 @@ export default function MarkRecapture() {
         
     }).play();  // Finally, start the animation loop
 
+    return function() {
+        // Unmount handler
+        two.unbind('update');
+        two.unbind('resize');
+      }
   }
 
   return (
