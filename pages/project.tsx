@@ -61,7 +61,7 @@ export default function Project({
 
 export function getStaticProps() {
   const posts = allProjects
-    .map((post) => pick(post, ['slug', 'title', 'summary', 'publishedAt']))
+    .map((post) => pick(post, ['slug', 'title', 'summary', 'publishedAt', 'image']))
     .sort(
       (a, b) =>
         Number(new Date(b.publishedAt)) - Number(new Date(a.publishedAt))
