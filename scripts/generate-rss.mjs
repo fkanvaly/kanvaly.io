@@ -5,14 +5,14 @@ import { allBlogs } from '.contentlayer/data';
 async function generate() {
   const feed = new RSS({
     title: 'Kanvaly Fadiga',
-    site_url: 'https://leerob.io',
-    feed_url: 'https://leerob.io/feed.xml'
+    site_url: 'https://kanvaly.vercel.app',
+    feed_url: 'https://kanvaly.vercel.app/feed.xml'
   });
 
   allBlogs.map((post) => {
     feed.item({
       title: post.title,
-      url: `https://leerob.io/blog/${post.slug}`,
+      url: `https://kanvaly.vercel.app/blog/${post.slug}`,
       date: post.publishedAt,
       description: post.summary
     });

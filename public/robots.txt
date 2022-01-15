@@ -1,2 +1,2 @@
 User-agent: *
-Sitemap: https://leerob.io/sitemap.xml
+Sitemap: https://kanvaly.vercel.app/sitemap.xml

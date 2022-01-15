@@ -5,20 +5,12 @@ generator client {
 
 datasource db {
   provider = "mysql"
-  url      = env("DATABASE_URL")
+  url      = env("PLANETSCALE_PRISMA_DATABASE_URL")
+  shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
   referentialIntegrity = "prisma"
 }
 
-model guestbook {
-  id         BigInt   @id @default(autoincrement())
-  email      String   @db.VarChar(256)
-  body       String   @db.VarChar(500)
-  created_by String   @db.VarChar(256)
-  created_at DateTime @default(now()) @db.DateTime(6)
-  updated_at DateTime @default(now()) @db.DateTime(6)
-}
-
-model views {
+model likes {
   slug  String @id @db.VarChar(128)
   count BigInt @default(1)
 }

@@ -2,17 +2,9 @@ import Image from 'next/image';
 import { parseISO, format } from 'date-fns';
 
 import Container from 'components/Container';
-import Subscribe from 'components/Subscribe';
 import ViewCounter from 'components/ViewCounter';
 import type { PropsWithChildren } from 'react';
 import type { Project } from '.contentlayer/types';
-
-const editUrl = (slug) =>
-  `https://github.com/leerob/leerob.io/edit/main/data/blog/${slug}.mdx`;
-const discussUrl = (slug) =>
-  `https://mobile.twitter.com/search?q=${encodeURIComponent(
-    `https://leerob.io/blog/${slug}`
-  )}`;
 
 export default function ProjectLayout({
   children,
@@ -26,7 +18,7 @@ export default function ProjectLayout({
       date={new Date(post.publishedAt).toISOString()}
       type="article"
     >
-      <article className="flex flex-col items-start justify-center w-full max-w-2xl mx-auto mb-16">
+      <article className="flex flex-col text-justify items-start justify-center w-full max-w-2xl mx-auto mb-16">
         <h1 className="mb-4 text-3xl font-bold tracking-tight text-black md:text-5xl dark:text-white">
           {post.title}
         </h1>
