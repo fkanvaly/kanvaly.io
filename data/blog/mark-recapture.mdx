@@ -5,6 +5,8 @@ summary: 'How to count animals in a safari'
 image: '/static/img/blog/animals.webp'
 ---
 
+<MathSpace />
+
 Hello friends! Today equipped with our Bayesian magnifying glass 🔎 we are going on a Safari to count animals. Inspired by [Andrew M. Webb](https://twitter.com/AndrewM_Webb/status/1212673397106388992) tweet I tried to reproduce what he made. I will explain to you how to count the number of animals by using [Mark and recapture](https://en.wikipedia.org/wiki/Mark_and_recapture) method and [Bayesian Inference](https://en.wikipedia.org/wiki/Bayesian_inference). First let's take a look at the result, then, explain how we get to it.
 
 # Result 🔥
@@ -22,7 +24,7 @@ We'll make these simplifying modeling assumptions:
 > * Every animal has an equal probability of being captured, and this probability is independent of capture events.
 > * The total number of animals captured in a given capture event does not depend on the total population size (apart from being upper-bounded by it). This assumption is false in the animation above but is often true in mark-and-recapture fieldwork. Note, if the total number of animals captured at each stage did depend on the population size, the total number observed would give us further information about the population size.
 
-# Belief Update 🤔
+# Belief Update 🤔 
 
 We will use the information of each capture to update our belief on the population size. Bayes Theorem is the main part of this update. Let's explain with a simple example. Imagine we thought that the population size is $pop=10$. we make our capture, and get 11 animals in our first try. bayesian belief update will update our belief using this rules: belief on $pop=10$ is multiplied by the likelihood of catching 11 animals if the $pop=10$. For our example the likelihood will be very low because capturing 11 if the population is 10 it is very unlikely (here impossible probability=0). This is exactly what we do for a range of prior population size. Then we normalize over all resulting value.
 
@@ -31,3 +33,22 @@ So, Bayesian Update is made as follow:
 > * Specify a prior distribution over hypotheses, in the absence of observational data.
 > * For a given hypothesis and observation, compute the likelihood, i.e., the probability of having made that observation.
 > * Re-normalize the posterior distribution, so that it sums to 1.
+
+<details>
+<summary>The maths behind 🧮 (don't be afraid it's simple)</summary>
+
+<div className="text-center">
+$\small{\mathbb{P}(H \mid O) \propto \mathbb{P}(O \mid H) \mathbb{P}(O)}$
+</div>
+
+If we let O stand for an observation, and H for a hypothesis. In our case it will look like :
+
+<div className="text-center">
+$\scriptsize{\mathbb{P}(X=pop \mid cap_{new}=k, cap_{already}=n) \propto \underbrace{\mathbb{P}(cap_{new}=k \mid X=k, cap_{already}=n)}_{\text{likelihood}} \underbrace{\mathbb{P}(X=pop \mid cap_{already}=n)}_{\text{prior}}}$
+</div>
+
+Where $cap_{new}$ is the number of new animals and $cap_{already}$ stand for the number of animals that we have already capture.
+
+$\small{\mathbb{P}(cap_{new}=k \mid X=k, cap_{already}=n)}$ follow a [hypergeometric distribution](https://en.wikipedia.org/wiki/Hypergeometric_distribution).
+
+</details>

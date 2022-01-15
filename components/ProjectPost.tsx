@@ -13,7 +13,6 @@ export default function ProjectPost({
   image
 }: Pick<Project, 'title' | 'summary' | 'slug' | 'image'>) {
   // const { data } = useSWR<Views>(`/api/views/${slug}`, fetcher);
-  console.log(image)
   return (
     <Link href={`/project/${slug}`}>
       <a className={cn(

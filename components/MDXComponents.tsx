@@ -29,6 +29,10 @@ function RoundedImage(props) {
   return <Image alt={props.alt} className="rounded-lg" {...props} />;
 }
 
+function MathContext() {
+  return <link rel="stylesheet" href="/assets/katex.min.css" />
+}
+
 const MDXComponents = {
   Image: RoundedImage,
   ImageWithTheme,
@@ -39,7 +43,8 @@ const MDXComponents = {
   ProsCard,
   Step,
   Unsplash,
-  YouTube
+  YouTube,
+  MathSpace: MathContext
 };
 
 export default MDXComponents;

@@ -2,7 +2,6 @@ import { useMDXComponent } from 'next-contentlayer/hooks';
 import { getTweets } from 'lib/twitter';
 import components from 'components/MDXComponents';
 import ProjectLayout from 'layouts/project';
-import Tweet from 'components/Tweet';
 import { allProjects } from '.contentlayer/data';
 import type { Project } from '.contentlayer/types';
 
