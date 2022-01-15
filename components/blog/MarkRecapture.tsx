@@ -2,7 +2,7 @@ import pl from 'date-fns/esm/locale/pl/index.js';
 import React, { useEffect, useRef } from 'react';
 import Two from 'two.js';
 import vegaEmbed from "vega-embed";
-import {TopLevelSpec} from 'vega-lite';
+import {Config, TopLevelSpec, compile} from 'vega-lite';
 
 export default function MarkRecapture() {
   var domElement = useRef();

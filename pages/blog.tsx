@@ -66,7 +66,8 @@ export default function Blog({
 
 export function getStaticProps() {
   const posts = allBlogs
-    .map((post) => pick(post, ['slug', 'title', 'summary', 'publishedAt', 'image']))
+    .map((post) => pick(post, ['slug', 'title', 'summary', 'publishedAt', 'image', 'draft']))
+    .filter(post => !post.draft)
     .sort(
       (a, b) =>
         Number(new Date(b.publishedAt)) - Number(new Date(a.publishedAt))
