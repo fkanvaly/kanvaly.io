@@ -5,7 +5,7 @@ import BlogLayout from 'layouts/blog';
 import { allBlogs } from '.contentlayer/data';
 import type { Blog } from '.contentlayer/types';
 
-export default function Post({ post, tweets }: { post: Blog; tweets: any[] }) {
+export default function Post({ post }: { post: Blog}) {
   const Component = useMDXComponent(post.body.code);
   return (
     <BlogLayout post={post}>
@@ -29,7 +29,6 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const post = allBlogs.find((post) => post.slug === params.slug);
-  const tweets = await getTweets(post.tweetIds);
 
-  return { props: { post, tweets } };
+  return { props: { post } };
 }
