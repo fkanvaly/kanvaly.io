@@ -8,18 +8,13 @@ import type { Project } from '.contentlayer/types';
 
 export default function Post({ post, tweets }: { post: Project; tweets: any[] }) {
   const Component = useMDXComponent(post.body.code);
-  const StaticTweet = ({ id }) => {
-    const tweet = tweets.find((tweet) => tweet.id === id);
-    return <Tweet {...tweet} />;
-  };
 
   return (
     <ProjectLayout post={post}>
       <Component
         components={
           {
-            ...components,
-            StaticTweet
+            ...components
           } as any
         }
       />
