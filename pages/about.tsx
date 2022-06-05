@@ -10,10 +10,12 @@ export default function About() {
           About Me
         </h1>
         <div className="mb-8 prose leading-6 text-gray-600 dark:text-gray-400">
-          <p className='text-justify'>
-            Hey, I'm Kanvaly and like many people today I am interested in artificial intelligence. 
-            At the moment I am discovering the world of the cloud ☁️ at Datadog. 
-            I am building tools based on AI in order to have visibility, to detect anomalies on the infrastructures deployed on the cloud. 
+          <p className="text-justify">
+            Hey, I'm Kanvaly and like many people today I am interested in
+            artificial intelligence. At the moment I am discovering the world of
+            the cloud ☁️ at Datadog. I am building tools based on AI in order to
+            have visibility, to detect anomalies on the infrastructures deployed
+            on the cloud.
           </p>
         </div>
         <Timeline />
@@ -24,7 +26,6 @@ export default function About() {
           Curious what I'm currently jamming to? Here's my top tracks on Spotify
           updated daily.
         </p>
-        <TopTracks />
       </div>
     </Container>
   );
