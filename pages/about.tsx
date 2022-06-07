@@ -13,9 +13,7 @@ export default function About() {
           <p className="text-justify">
             Hey, I'm Kanvaly and like many people today I am interested in
             artificial intelligence. At the moment I am discovering the world of
-            the cloud ☁️ at Datadog. I am building tools based on AI in order to
-            have visibility, to detect anomalies on the infrastructures deployed
-            on the cloud.
+            the cloud ☁️ at Datadog.
           </p>
         </div>
         <Timeline />
