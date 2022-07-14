@@ -43,7 +43,7 @@ export default function BlogLayout({
           </p>
         </div>
         <div className="w-full mt-4 prose dark:prose-dark max-w-none">
-          <img className='rounded-lg' src={post.image} />
+          <img className='rounded-lg' src={post.image} alt=''/>
           {children}
         </div>
       </article>

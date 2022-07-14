@@ -9,6 +9,7 @@ import Analytics from 'components/metrics/Analytics';
 import YouTube from 'components/metrics/Youtube';
 import Step from 'components/Step';
 import ImageWithTheme from 'components/ImageWithTheme';
+import MarkRecapture from './blog/MarkRecapture';
 
 const CustomLink = (props) => {
   const href = props.href;
@@ -44,7 +45,8 @@ const MDXComponents = {
   Step,
   Unsplash,
   YouTube,
-  MathSpace: MathContext
+  MathSpace: MathContext,
+  MarkRecapture: MarkRecapture
 };
 
 export default MDXComponents;

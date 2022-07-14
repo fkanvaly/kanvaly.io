@@ -1,0 +1,36 @@
+---
+title: 'Decipher messages 🔐'
+publishedAt: '2021-04-07'
+summary: 'Decrypt any secret code'
+image: '/static/img/blog/encrypt.webp'
+draft: true
+---
+
+<MathSpace />
+
+# Play with it 😎
+
+Write a message, we will encrypt it with symbols (here emoji 😉) by replacing each alphabet letter with symbols. Then our algorithm will try to reconstruct the original message.
+
+# What's the problem 🙋
+
+Between 1968 and 1970, a serial killer nicknamed the [Zodiac Killer](https://en.wikipedia.org/wiki/Zodiac_Killer) murdered at least 5 people in the San Francisco area, and he is probably responsible for several dozen other unconfirmed cases. He was known for taunting the authorities by sending letters to local newspapers that contained such coded messages. The killer was never identified, and the case has been officially open for over 50 years.
+
+The encryption of the message was done by changing the characters of the alphabet by symbols to make the message incomprehensible. So our goal is to find these correspondences to the right character to reconstruct the real message. In the next section, we will see that we can solve this problem using optimization.
+
+I first get in touch we this problem while I was watching a French science channel video on the topic ([ScienceEtonnante](https://youtu.be/z4tkHuWZbRA)). I just try to reproduce and make it online so people can challenge the algorithm.
+
+
+# Solve it as combinatorial optimization problem 🧮
+
+In reality, we are dealing with a combinatorial optimization problem. The objective is to assign the symbols to the letters of the alphabet to reconstitute the message. For that, we will need a score that will allow us to evaluate our solution. Here our score function will be the plausibility that the reconstruction we obtain is plausible in the language we are considering (Here English).
+
+## Plausibility as the objective function
+
+Our objective function will use the bi-gram probabilities. The matrix below represents the character chaining probabilities that we obtain by parsing the [book]().
+
+## The solution
+
+Once we have our function, all we have to do is apply a stochastic optimization algorithm and we are done. Here we will apply the simulated annealing algorithm. 
+
+
